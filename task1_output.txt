@@ -1,0 +1,11 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26200-SP0
+CPU model/details: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+Logical cores (os.cpu_count()): 12
+Array size: 20000000
+Array dtype: float64 (array('d'))
+Seed: 230103328
+Execution mode: serial (single thread)
+Sum: 9998584.312586240470
+Population standard deviation: 0.288689711902
+Serial computation time: 2983.134 ms
