@@ -1,0 +1,19 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26200-SP0
+CPU model/details: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+Logical cores: 12
+Array size: 20000000
+Array dtype: float64 (shared memory)
+Seed: 230103328
+Execution mode: multiprocessing (one worker process per count)
+Timing: wall-clock summation + partial-sum reduction; worker startup excluded
+Reference sum: 9998584.312586240470
+Parallel fraction P: 0.95
+
+Cores |      Wall Time |   Speedup | Amdahl Upper Bound
+-----------------------------------------------------------
+    1 |    329.751 ms |    1.000x |             1.000x
+    2 |    230.811 ms |    1.429x |             1.905x
+    4 |    111.934 ms |    2.946x |             3.478x
+   12 |     52.916 ms |    6.232x |             7.742x
+   24 |     59.441 ms |    5.548x |            11.163x
