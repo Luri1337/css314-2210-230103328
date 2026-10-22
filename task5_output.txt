@@ -1,0 +1,26 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26200-SP0
+CPU: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+Logical cores / worker threads: 12
+Operation: y[i] = 2.5 * x[i] + 1.75
+Array dtype: float64
+Array sizes: [100, 1000, 10000, 100000, 1000000, 10000000]
+Repetitions per method: 9 (median wall-clock time)
+Timing: computation + thread submission/join; excludes array allocation,
+        Numba compilation and initial worker-thread startup
+Execution: serial Numba vs. 12 Numba nogil worker threads
+
+           N |    Serial (ms) |  Parallel (ms) |   Speedup | Result
+-----------------------------------------------------------------------------
+         100 |       0.002000 |       0.269400 |    0.007x | PARALLEL SLOWER/EQUAL
+       1,000 |       0.002700 |       0.268900 |    0.010x | PARALLEL SLOWER/EQUAL
+      10,000 |       0.009300 |       0.268100 |    0.035x | PARALLEL SLOWER/EQUAL
+     100,000 |       0.058300 |       0.329100 |    0.177x | PARALLEL SLOWER/EQUAL
+   1,000,000 |       0.787900 |       0.641000 |    1.229x | PARALLEL FASTER
+  10,000,000 |      11.281800 |       8.888100 |    1.269x | PARALLEL FASTER
+
+CROSSOVER ANALYSIS (based on measured array sizes):
+SLOWER -> FASTER between N=100,000 and N=1,000,000
+Observed crossover range: (100,000, 1,000,000]
+Note: this is the bracket between measured sizes, not an exact single
+element threshold; timings can change across runs and CPU load.
