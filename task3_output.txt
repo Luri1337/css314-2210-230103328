@@ -1,0 +1,20 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26200-SP0
+CPU model/details: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+Logical cores: 12
+Physical cores / threads: 6
+Increments per thread: 50000000
+Execution mode: native multithreading (Numba nogil=True)
+Counter type: int64
+Unpadded spacing: 8 bytes
+Padded spacing: 64 bytes
+JIT compilation and worker creation excluded from timing
+
+Variant            |      Wall Time
+-------------------------------------
+Unpadded Shared    |     2315.959 ms
+Padded Shared      |       13.587 ms
+
+Unpadded / Padded ratio: 170.452x
+Final count per thread (both variants): 50000000
+Total increments per variant: 300000000
