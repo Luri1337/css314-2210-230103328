@@ -1,0 +1,30 @@
+TASK 7 — MEMORY BANDWIDTH SATURATION
+Student ID: 230103328
+OS: Windows-11-10.0.26200-SP0
+CPU model/details: AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+Logical cores detected: 12
+Numba thread pool limit: 12
+Workers tested: [1, 2, 12]
+Array size: 30,000,000 float64 elements
+Input/output memory: 457.8 MiB
+Timing: median of 3 wall-clock runs; JIT compilation and warm-up excluded
+
+Kernel                Cores      Wall Time    Speedup   Efficiency
+--------------------------------------------------------------------
+A — Vector Copy           1      16.850 ms     1.000x     100.00%
+A — Vector Copy           2      13.065 ms     1.290x      64.48%
+A — Vector Copy          12      15.038 ms     1.120x       9.34%
+B — Trigonometry          1     418.584 ms     1.000x     100.00%
+B — Trigonometry          2     258.786 ms     1.617x      80.87%
+B — Trigonometry         12     101.160 ms     4.138x      34.48%
+
+Kernel A effective memory throughput (read A + write B):
+   1 workers:    28.49 GB/s
+   2 workers:    36.74 GB/s
+  12 workers:    31.92 GB/s
+
+SCALING CONCLUSION
+Memory-channel-saturation candidate: Kernel A (Vector Copy).
+Kernel B (sin/cos/tan) is primarily computation-intensive.
+Observed: Kernel A throughput barely improved from 2 to 12 workers (0.87x); consistent with memory bandwidth saturation.
+Note: timings indicate scaling limits, but hardware bandwidth counters are needed to prove RAM-channel saturation conclusively.
