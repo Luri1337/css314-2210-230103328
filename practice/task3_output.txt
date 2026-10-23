@@ -1,0 +1,13 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26300-SP0
+Logical cores: 12
+Physical core workers: 6
+Input elements: 2,000,000, integers in [1, 10]
+Seed: 230103328
+Timing: scan only, excluding input creation / JIT compilation / output allocation
+
+Serial Time (ms) | Parallel Time (ms) | Speedup | Verification
+---------------------------------------------------------------
+           3.633 |              5.432 |   0.669x | PASS
+Serial final prefix: 10994270
+Parallel final prefix: 10994270
