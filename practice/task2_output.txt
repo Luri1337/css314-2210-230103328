@@ -1,0 +1,14 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26300-SP0
+Total Monte Carlo samples per run: 40,000,000
+Worker threads: 4
+Batch size: 100,000 points
+Shared seed: 230103328
+Independent seeds: [2301033280, 2301033281, 2301033282, 2301033283]
+Both runs include thread startup and counting; the shared generator is mutex-protected.
+
+Mode                Estimated pi   Abs. error         Wall time
+-------------------------------------------------------------------
+Shared PRNG + mutex  3.141435500   0.000157154      374.555 ms
+Independent PRNGs    3.141595700   0.000003046      183.074 ms
+Lock elimination speedup (shared / independent): 2.046x
