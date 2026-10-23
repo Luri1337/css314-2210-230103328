@@ -1,0 +1,15 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26300-SP0
+CPU IPC benchmark, NumPy float64, sizes: [100000, 1000000, 10000000]
+Median of 3 transfers per size; worker startup excluded
+Path A: send full array through multiprocessing.Pipe (Pickle + data copy)
+Path B: send shared_memory name and shape (zero-copy data access)
+Times include parent send, worker receive/attach, and small acknowledgment.
+Shared-memory allocation and initial array filling excluded from both paths.
+
+         N | Path A: Pipe (ms) | Path B: Shared (ms) | A / B
+----------------------------------------------------------
+   100,000 |             1.757 |               0.385 |   4.57x
+ 1,000,000 |            17.966 |               0.440 |  40.80x
+10,000,000 |           153.649 |               0.436 | 352.25x
+Verification: PASS (matching length and sampled values)
