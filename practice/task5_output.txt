@@ -1,0 +1,22 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26300-SP0
+Logical cores (os.cpu_count): 12
+Total tasks per run: 10,000
+CPU work per task: PBKDF2-HMAC-SHA256 (500 rounds, 1 KiB input)
+Repetitions per pool size: 3 (median wall time)
+Worker threads prestarted; 10,000 task submissions/completions timed.
+
+Pool Size | Execution Time (ms) | Speedup vs 1 thread | Status
+-------------------------------------------------------------------------------
+        1 |            2515.875 |              1.000x | BASELINE
+        6 |             603.269 |              4.170x | OK
+       12 |             540.068 |              4.658x | OK
+       24 |             518.951 |              4.848x | OVERSUBSCRIBED
+       48 |             510.310 |              4.930x | OVERSUBSCRIBED
+      192 |             496.964 |              5.062x | OVERSUBSCRIBED
+      256 |             505.057 |              4.981x | OVERSUBSCRIBED, FIRST SLOWDOWN
+
+Result checksum (same for all runs): 1269046
+First measured slowdown: 256 threads (505.057 ms vs 496.964 ms at 192 threads).
+Oversubscription degradation threshold: not observed in tested sizes.
+Note: wall-clock slowdown indicates contention/scheduling overhead; it does not alone prove OS context-switching as the sole cause.
