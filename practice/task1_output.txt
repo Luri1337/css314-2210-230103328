@@ -1,0 +1,13 @@
+Student ID: 230103328
+OS: Windows-11-10.0.26300-SP0
+Logical cores: 12
+Physical cores / worker threads: 6
+Matrix: 8000 x 8000, dtype=float64, C-contiguous
+Seed: 230103328
+Timing: median of 3 runs, including task scheduling; JIT warm-up excluded
+Row-major sum: 32001019.249445062
+Column-major sum: 32001019.249445472
+Verification: PASS
+Mode A (Row-Major):       14.921 ms
+Mode B (Column-Major):    110.470 ms
+Cache penalty B / A:     7.404x
